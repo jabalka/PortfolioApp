@@ -1,17 +1,32 @@
+<div class="content">
+  <p>Join today.</p>
+</div>
 
 <section>
-    <button mat-button>
-        <mat-icon svgIcon="google-icon"></mat-icon>
-        <span>Sign up with Google</span>
-    </button>
-    <button mat-button>
-        <mat-icon svgIcon="apple-icon"></mat-icon>
-        <span>Sign up with Apple</span>
-    </button>
-</section>
+  <!-- <button mat-button (click)="googleSignin()">
+    <mat-icon svgIcon="google-icon"></mat-icon>
+    <span>Sign up with Google</span>
+  </button> -->
+  <app-google-signin (loginWithGoogle)="googleSignin($event)"></app-google-signin>
+  
+  <button mat-button>
+    <mat-icon svgIcon="apple-icon"></mat-icon>
+    <span>Sign up with Apple</span>
+  </button>
 
-<p>or</p>
-<div class="example-button-row2">
-    <a mat-flat-button href="https://www.google.com/" target="_blank">Create Account</a>
-</div>
-<span>By signing up, you agree to the <a href="/toLink">Terms of Service</a> and <a href="/toLink">Privacy Policy</a>, including <a href="/goLink">Cookie Use.</a></span>
+  <button mat-button>
+    <mat-icon svgIcon="facebook-icon"></mat-icon>
+    <span>Sign up with Apple</span>
+  </button>
+  <p>or</p>
+  <div class="example-button-row">
+    <a mat-flat-button href="https://www.google.com/" target="_blank"
+      >Create Account</a
+    >
+  </div>
+  <span
+    >By signing up, you agree to the <a href="/toLink">Terms of Service</a> and
+    <a href="/toLink">Privacy Policy</a>, including
+    <a href="/goLink">Cookie Use.</a></span
+  >
+</section>
