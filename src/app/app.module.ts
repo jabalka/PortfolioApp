@@ -3,6 +3,7 @@ import Parse from 'parse/node';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 import { environment } from '../environments/environment';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 const MODULES = [
   AppRoutingModule,
@@ -19,6 +22,7 @@ const MODULES = [
   BrowserAnimationsModule,
   BrowserModule,
   HttpClientModule,
+  MatProgressSpinnerModule,
 
   CoreModule,
 ]
@@ -28,6 +32,8 @@ const MODULES = [
     AppComponent,
     HomeComponent,
     HomeComponent,
+    LoadingComponent,
+
   ],
   imports: [
     ...MODULES,
@@ -36,6 +42,7 @@ const MODULES = [
     provideHttpClient(withFetch()),
     provideClientHydration(),
     provideAnimationsAsync(),
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
   ],
   bootstrap: [AppComponent]
 })

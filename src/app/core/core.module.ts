@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppbarComponent } from './appbar/appbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,12 +22,18 @@ import {
 } from '@abacritt/angularx-social-login';
 import { GoogleSigninComponent } from './google-signin/google-signin.component';
 import { AuthService } from '../client/auth.service';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { CreatePasswordComponent } from './create-password/create-password.component';
 
 const COMPONENTS = [
   AppbarComponent,
   SidenavComponent,
   HomeButtonsComponent,
   GoogleSigninComponent,
+  CreateAccountComponent,
+  CreatePasswordComponent,
 ]
 
 const MODULES = [
@@ -36,6 +46,11 @@ const MODULES = [
   MatIconModule,
   MatButtonModule,
   SocialLoginModule,
+  MatFormFieldModule,
+  MatInputModule,
+  ReactiveFormsModule,
+  MatSelectModule,
+  MatDatepickerModule,
 
   CommonModule,
 ]
@@ -50,6 +65,7 @@ const MODULES = [
   providers: [
     SidenavService,
     AuthService,
+    provideNativeDateAdapter(),
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

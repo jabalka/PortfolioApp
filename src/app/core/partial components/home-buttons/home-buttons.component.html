@@ -1,5 +1,6 @@
 <div class="content">
-  <p>Join today.</p>
+  <h1>Happening now</h1>
+  <h3>Join today.</h3>
 </div>
 
 <section>
@@ -7,22 +8,27 @@
     <mat-icon svgIcon="google-icon"></mat-icon>
     <span>Sign up with Google</span>
   </button> -->
+
   <app-google-signin (loginWithGoogle)="googleSignin($event)"></app-google-signin>
   
-  <button mat-button>
+  <button class="social-button" mat-button>
     <mat-icon svgIcon="apple-icon"></mat-icon>
     <span>Sign up with Apple</span>
   </button>
 
-  <button mat-button>
+  <button class="social-button" mat-button>
     <mat-icon svgIcon="facebook-icon"></mat-icon>
     <span>Sign up with Apple</span>
   </button>
-  <p>or</p>
-  <div class="example-button-row">
-    <a mat-flat-button href="https://www.google.com/" target="_blank"
-      >Create Account</a
-    >
+
+  <div class="line-container">
+    <p class="line-text">or</p>
+  </div>
+  
+
+  <div class="createAcc">
+    <a class="createBtn" mat-flat-button (click)="openCreateDialog()">
+      Create Account</a>
   </div>
   <span
     >By signing up, you agree to the <a href="/toLink">Terms of Service</a> and

@@ -5,16 +5,73 @@
     width: fit-content;
   }
 
-  section button, a{
+  .createBtn{
+    width: 80%;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(50, 141, 227);
+  }
+  .createBtn.mat-flat-button {
+    box-shadow: none; /* Remove the default box-shadow */
+  }
+
+  .social-button{
     width: 80%;
     justify-content: center;
     border-radius: 12px;
+    background-color: whitesmoke;
   }
 
-  .example-button-row a{
-    background-color: rgb(50, 141, 227);
-    color: white;
-    font-weight: bold;
-    border-radius: 20px;
-
+  section span{
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 450;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: rgb(143, 140, 140);
   }
+
+  section a {
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+    font-weight: 450;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: rgb(46, 138, 223);
+  }
+
+.content, .line-container{
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 1000;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: whitesmoke;
+}
+
+.line-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.line-container::before,
+.line-container::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgb(143, 140, 140); /* Adjust the color and thickness */
+}
+
+.line-container::before {
+  margin-right: 10px; /* Spacing before the text */
+}
+
+.line-container::after {
+  margin-left: 10px; /* Spacing after the text */
+}
+
+.line-text {
+  white-space: nowrap; /* Prevent text from wrapping */
+  font-size: 16px; /* Adjust the font size */
+}

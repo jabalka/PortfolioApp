@@ -1,0 +1,63 @@
+<div class="content">
+  <button class="close-button" mat-icon-button (click)="onXClick()" aria-label="close dialog" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h1 mat-dialog-title class="dialog-title">Create your account</h1>
+    <mat-form-field appearance="outline" hintLabel="">
+      <mat-label class="label">Name</mat-label>
+      <input class="input" matInput #input maxlength="50" formControlName="name" (input)="onInput($event)" />
+      <mat-hint align="end">{{nameInputValue().length}}/50</mat-hint>
+      @if (name.invalid) {
+        <mat-error *ngIf="form.get('name')?.touched && form.get('name')?.errors?.['required']">What's your name?</mat-error>
+      }
+    </mat-form-field>
+        <div *ngIf="isPhone" class="example-container">
+          <mat-form-field class="input-field" appearance="outline">
+            <mat-label class="label">Phone</mat-label>
+            <input matInput placeholder="" formControlName="phone"/>
+            @if (phone.invalid) {
+              <mat-error *ngIf="form.get('phone')?.errors?.['invalidPhoneNumber']">{{ form.get('phone')?.errors?.['invalidPhoneNumber'] }}</mat-error>
+            }
+          </mat-form-field>
+        </div>
+   
+        <div *ngIf="isEmail" class="example-container">
+          <mat-form-field appearance="outline">
+            <mat-label class="label">Email</mat-label>
+            <input matInput placeholder="" formControlName="email"/>
+            @if (email.invalid) {
+              <mat-error *ngIf="form.get('email')?.errors?.['invalidEmail']">Please enter a valid email.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+    <a class="change-inputs" (click)="changeInputs()">{{isPhone? 'Use email instead' : 'Use phone instead'}}</a>
+    <div class="example-container">
+    <h3>Date of birth</h3>
+    <p>This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.</p>
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="MM/DD/YYYY">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="control-buttons" mat-dialog-actions>
+    <button [disabled]="!isReady" class="control-button" mat-button color="warn" >Next</button>
+</div>
+</form>
+<div>
+  <p class="errorMsg" *ngIf="errorMessage.length > 0">{{ errorMessage }}</p>
+</div>
+
+</div>
+  
+  
+
+
+
+
+

@@ -1,0 +1,8 @@
+
+1. create-account.component on ln86
+2. Needs to build the new create-password component dialog 
+to switch after NEXT on create-account is pressed so it can set password
+3. The Object created after create-account is consumed needs to be stored in state
+4. Once user create password this value needs to be added to the Object i nthe stored
+5. After the object is fullfilled a request to be made to the server and new user to be created
+6...

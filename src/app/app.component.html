@@ -3,13 +3,18 @@
   <app-sidenav>
   </app-sidenav>
 </router-outlet> -->
+<fieldset *ngIf="!userLogged else loggedUser">
+  <app-home></app-home>
+</fieldset>
 
-
-<app-appbar></app-appbar>
-<app-sidenav>
+<ng-template #loggedUser>
+  <app-appbar></app-appbar>
+  <app-sidenav>
   <!-- Content defined here will be projected into the SidenavComponent's ng-content -->
   <h2>Content goes here from app.component</h2>
   <router-outlet>
-    <app-home></app-home>
+  
   </router-outlet>
-</app-sidenav>
+  </app-sidenav>
+
+</ng-template>
